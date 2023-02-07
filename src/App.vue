@@ -1,4 +1,5 @@
 <script>
+import{store} from './store'
 import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
@@ -10,22 +11,22 @@ export default{
   },
   data(){
     return{
-      characters:[]
+      store
     }
   },
   created(){
     axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php' )
     .then((response) => {
-      this.characters = response.data.data.slice(0,16);
+      this.store.characters = response.data.data.slice(0,16);
     })
-  }
+  }  
 }
-</script>
+</script> 
 
 <template>
   <div class="bg-secondary">
     <AppHeader />
-    <AppMain :charactersList="characters"/>
+    <AppMain/>
   </div>
 </template>
 
