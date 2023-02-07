@@ -18,7 +18,7 @@ export default {
 <template>
     <main>
     <div class="container bg-light">
-        <AppMainTop :totalCards ="store.characters.length"/>
+        <AppMainTop/>
         <div class="row justify-content-center py-3">
             <div class="col-11">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
@@ -26,7 +26,7 @@ export default {
                         <div v-for="i in character.card_images.slice(0,15)">
                             <img :src="i.image_url_small" alt="character.name">                       
                         </div>
-                        <h3>{{ character.name }}</h3>
+                        <h3>{{ character.name}}</h3>
                         <h5>{{character.archetype}}</h5>
                     </div>
                 </div>

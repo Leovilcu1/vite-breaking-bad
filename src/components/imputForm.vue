@@ -1,20 +1,32 @@
 <script>
+import{store} from '../store'
    export default {
-    name:"imputForm"
-   }
+    name:"imputForm",
+    data(){
+        return{
+            store
+        }
+    },
+   };
+
+
 </script>
 
 <template>
-    <div class="dropdown">
-        <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Select category
-        </button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-        </ul>
-    </div>
+
+    <form action="">
+        <div class="row">
+            <div class="col-auto">
+                <select v-model="store.categoriValue" @change="$emit('search')" id="formSelect" aria-label="select status">
+                    <option selected value="">Select Categori</option>
+                    <option value="alien">Alien</option>
+                    <option value="noble knight">Noble Knight</option>
+                    <option value="melodius">Melodious</option>
+                </select>
+            </div>
+        </div>
+    </form>
+  
 </template>
 
 <style lang="scss" scoped>
